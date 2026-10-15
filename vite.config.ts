@@ -9,7 +9,23 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   // Heroku runs a normal Node process, so use Nitro's Node server preset
   // instead of the default Cloudflare worker output.
-  nitro: { preset: "node-server" },
+  nitro: {
+    preset: "node-server",
+    rolldownConfig: {
+      onLog(level, log, defaultHandler) {
+        if (log.code === "MODULE_LEVEL_DIRECTIVE" || log.message?.includes("use client")) {
+          return;
+        }
+        defaultHandler(level, log);
+      },
+      onwarn(warning, defaultHandler) {
+        if (warning.code === "MODULE_LEVEL_DIRECTIVE" || warning.message?.includes("use client")) {
+          return;
+        }
+        defaultHandler(warning);
+      },
+    },
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
@@ -17,5 +33,18 @@ export default defineConfig({
   },
   vite: {
     server: { allowedHosts: true },
+    build: {
+      rollupOptions: {
+        onwarn(warning, defaultHandler) {
+          if (
+            warning.code === "MODULE_LEVEL_DIRECTIVE" ||
+            warning.message?.includes("use client")
+          ) {
+            return;
+          }
+          defaultHandler(warning);
+        },
+      },
+    },
   },
 });

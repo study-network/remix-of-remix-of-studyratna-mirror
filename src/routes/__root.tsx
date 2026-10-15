@@ -87,8 +87,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "PW-MARCO" },
       { name: "twitter:description", content: "pwmarco.live lecture and study platform." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e5349d5d-6ccb-493e-9ac2-d93f9301f6e2/id-preview-a8a0d114--fdb7441b-9432-4ab5-9318-1dafc8c61d7f.lovable.app-1785436445561.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e5349d5d-6ccb-493e-9ac2-d93f9301f6e2/id-preview-a8a0d114--fdb7441b-9432-4ab5-9318-1dafc8c61d7f.lovable.app-1785436445561.png" },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e5349d5d-6ccb-493e-9ac2-d93f9301f6e2/id-preview-a8a0d114--fdb7441b-9432-4ab5-9318-1dafc8c61d7f.lovable.app-1785436445561.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e5349d5d-6ccb-493e-9ac2-d93f9301f6e2/id-preview-a8a0d114--fdb7441b-9432-4ab5-9318-1dafc8c61d7f.lovable.app-1785436445561.png",
+      },
     ],
     links: [
       {

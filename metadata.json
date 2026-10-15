@@ -1,0 +1,6 @@
+{
+  "name": "PW-MARCO Mirror Proxy",
+  "description": "pwmarco.live lecture and study platform mirror and proxy application.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
